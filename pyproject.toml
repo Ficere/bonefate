@@ -1,0 +1,52 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+  "setuptools",
+  "setuptools-scm>=8.0.4",
+]
+
+[project]
+name = "bonefate"
+description = "中国传统的称骨算命"
+readme = "README.md"
+keywords = [
+  "泱泱大中华之国粹"
+]
+license = {text = "MIT License"}
+maintainers = [
+  {name = "Lvjun Guo", email = "guolj@dp.tech"},
+]
+authors = [
+  {name = "Lvjun Guo", email = "guolj@dp.tech"},
+]
+requires-python = ">=3.10"
+classifiers = [
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+]
+dynamic = [
+  "version",
+]
+dependencies = [
+  "lunar_python",
+  "streamlit",
+]
+[project.scripts]
+bfutil="bonefate.cli.main:main"
+
+[tool.setuptools]
+packages = ["bonefate"]
+
+[tool.setuptools_scm]
+write_to = "bonefate/_version.py"
+write_to_template = "version = __version__ = {version!r}\nversion_tuple = __version_tuple__ = {version_tuple!r}\nrevision = __revision__ = {scm_version.node!r}\n"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+profile = "black"
+
+[tool.flake8]
+max-line-length = 120
