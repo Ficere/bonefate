@@ -10,7 +10,7 @@ def main():
     year = st.number_input("年份", min_value=1900, max_value=2100, value=2021)
     month = st.number_input("月份", min_value=1, max_value=12, value=1)
     day = st.number_input("日期", min_value=1, max_value=31, value=1)
-    hour = st.selectbox("时辰", list(DIZHI.values()), format_func=lambda x: f"{x}时————({'时-'.join(map(str, get_24_hour_time(x)))}点)")
+    hour = st.selectbox("时辰", list(DIZHI.values()), format_func=lambda x: f"{x}时————({'时-'.join(map(str, get_24_hour_time(x)))}时)")
     lunar = st.checkbox("输入日期为农历")
     
     bonefate = BoneFates(year, month, day, hour, lunar)
